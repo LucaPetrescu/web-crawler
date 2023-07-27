@@ -1,6 +1,5 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const postal = require("node-postal");
 
 function findSocialMediaLinks($) {
   const socialMediaLinks = [];
@@ -41,23 +40,23 @@ function findPhoneNumbers($, element, phoneNumbers) {
   return phoneNumbers; // Return the accumulated phone numbers array
 }
 
-function findAddresses($, element, addresses) {
-  const text = $(element).text();
-  const addressObj = postal.parser(text);
-  console.log(addressObj);
-  if (addressObj) {
-    addresses.push(addressObj.fullAddress);
-    return;
-  }
+// function findAddresses($, element, addresses) {
+//   const text = $(element).text();
+//   const addressObj = postal.parser(text);
+//   console.log(addressObj);
+//   if (addressObj) {
+//     addresses.push(addressObj.fullAddress);
+//     return;
+//   }
 
-  $(element)
-    .children()
-    .each((index, childElement) => {
-      findAddresses($, childElement, addresses);
-    });
+//   $(element)
+//     .children()
+//     .each((index, childElement) => {
+//       findAddresses($, childElement, addresses);
+//     });
 
-  return addresses;
-}
+//   return addresses;
+// }
 
 // async function crawlContactPage(baseUrl) {
 //   let phoneNumbers = [];
@@ -136,7 +135,6 @@ function removeDuplicates(information) {
 module.exports = {
   findSocialMediaLinks,
   findPhoneNumbers,
-  findAddresses,
   // crawlContactPage,
   removeDuplicates,
   crawlFooter,

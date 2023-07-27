@@ -26,8 +26,8 @@ async function massAdd(req, res) {
   }
 }
 
-// async function mergeDataset(req, res) {
-//   fs.readFile(resultPath, "utf8");
-// }
+async function mergeDataset(req, res) {
+  fs.readFile(resultPath, "utf8");
+}
 
 module.exports = { massAdd, mergeDataset };

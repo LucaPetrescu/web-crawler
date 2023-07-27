@@ -4,10 +4,7 @@ const readCSV = require("./helpers/csv-reader");
 const crawler = require("./logic/crawler-logic");
 const fs = require("fs");
 
-const path =
-  "C:/Users/PC/Desktop/web-crawler/crawler/assets/sample-websites.csv";
-
-async function crawl() {
+async function crawl(path) {
   const domains = await readCSV.readCSVSingleColumn(path);
   let info = [];
   let addresses = [];
@@ -34,7 +31,6 @@ async function crawl() {
       const allSocialMediaLinks = homePageResults.socialMediaLinks
         .concat(contactPageResults.socialMediaLinks)
         .concat(footerResults.socialMediaLinks);
-      const addressesRes = crawler.findAddresses($, "body", addresses);
       // console.log(addresses);
       // console.log(allSocialMediaLinks);
       // const socialMediaLinks = helpers.findSocialMediaLinks($);
@@ -121,6 +117,7 @@ async function crawl() {
   });
 
   // console.log(info);
+  return crawler.removeDuplicates(info);
 }
 
-crawl();
+module.exports = { crawl };
