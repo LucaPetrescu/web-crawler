@@ -108,4 +108,13 @@
 //   return phoneNumbers;
 // }
 
+// async function crawlContactPage(baseUrl) {
+//   let phoneNumbers = [];
+//   const response = await axios.get(baseUrl);
+//   const html = response.data;
+//   const $ = cheerio.load(html);
+//   phoneNumbers = findPhoneNumbers($, "body", phoneNumbers);
+//   return phoneNumbers;
+// }
+
 // module.exports = { crawlContactPage, crawlFooter, crawlHomePage, phoneNumbers };

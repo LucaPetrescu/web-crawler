@@ -4,7 +4,8 @@
     "allPhoneNumbers": "No phone numbers found. Either anticrawling mechanism present on the website or there are no phone numbers on the website.",
     "allSocialMediaLinks": [
       "https://docs.google.com/document/d/1xpyZETk6CekebnDXTSEAdQDQgp9mZpTVZYySOZTVl2U/edit?usp=sharing"
-    ]
+    ],
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://mazautoglass.com",
@@ -14,22 +15,26 @@
       "122.4045429",
       "1658249569"
     ],
-    "allSocialMediaLinks": "No social media links found. Either anticrawling mechanism present on the website or there are no social media links on the website."
+    "allSocialMediaLinks": "No social media links found. Either anticrawling mechanism present on the website or there are no social media links on the website.",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://melatee.com",
     "allPhoneNumbers": "Error: melatee.com not available",
-    "allSocialMediaLinks": "Error: melatee.com not available"
+    "allSocialMediaLinks": "Error: melatee.com not available",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://timent.com",
     "allPhoneNumbers": "Error: Request failed with status code 404",
-    "allSocialMediaLinks": "Error: Request failed with status code 404"
+    "allSocialMediaLinks": "Error: Request failed with status code 404",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://tlalocrivas.com",
-    "allPhoneNumbers": "Error: self signed certificate",
-    "allSocialMediaLinks": "Error: self signed certificate"
+    "allPhoneNumbers": "Error: self-signed certificate",
+    "allSocialMediaLinks": "Error: self-signed certificate",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://creativebusinessassociates.com",
@@ -38,49 +43,102 @@
     ],
     "allSocialMediaLinks": [
       "https://www.facebook.com/paula.easton"
-    ]
+    ],
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://cumberland-river.com",
     "allPhoneNumbers": "No phone numbers found. Either anticrawling mechanism present on the website or there are no phone numbers on the website.",
-    "allSocialMediaLinks": "No social media links found. Either anticrawling mechanism present on the website or there are no social media links on the website."
+    "allSocialMediaLinks": "No social media links found. Either anticrawling mechanism present on the website or there are no social media links on the website.",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://verdantporch.com",
     "allPhoneNumbers": "Error: Request failed with status code 404",
-    "allSocialMediaLinks": "Error: Request failed with status code 404"
+    "allSocialMediaLinks": "Error: Request failed with status code 404",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://workitstudio.com",
-    "allPhoneNumbers": [
-      "1690119333",
-      "(202) 588-7363",
-      "2054250382",
-      "8215482559",
-      "0420468256",
-      "6993021844",
-      "8976823817",
-      "391-9791905",
-      "2110694603",
-      "9900000095",
-      "4389697522",
-      "1689760081",
-      "202-588-7363",
-      "0963689939",
-      "7262532226"
-    ],
-    "allSocialMediaLinks": [
-      "https://www.facebook.com/balancegymdc/?fref=mentions",
-      "https://maps.google.com/?q=1339+Green+Court,+N.W.+Washington,+D.C.+20005&entry=gmail&source=g",
-      "https://www.facebook.com/workitstudio",
-      "https://twitter.com/workitstudio",
-      "https://www.instagram.com/workitstudio/",
-      "https://www.facebook.com/pages/Work-It-Studio-by-WandaWoman/137632392918895?ref=ts&fref=ts"
-    ]
+    "allPhoneNumbers": "Error: Cannot read properties of undefined (reading 'concat')",
+    "allSocialMediaLinks": "Error: Cannot read properties of undefined (reading 'concat')",
+    "allEmailAddresses": []
   },
   {
     "baseUrl": "https://coffee-homemachines.club",
     "allPhoneNumbers": "Error: coffee-homemachines.club not available",
-    "allSocialMediaLinks": "Error: coffee-homemachines.club not available"
+    "allSocialMediaLinks": "Error: coffee-homemachines.club not available",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://mendiolagardening.com",
+    "allPhoneNumbers": "Error: mendiolagardening.com not available",
+    "allSocialMediaLinks": "Error: mendiolagardening.com not available",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://thestonenc.com",
+    "allPhoneNumbers": "No phone numbers found. Either anticrawling mechanism present on the website or there are no phone numbers on the website.",
+    "allSocialMediaLinks": [
+      "https://www.facebook.com/thestonenc",
+      "https://www.instagram.com/thestonech/",
+      "https://policies.google.com/privacy",
+      "https://policies.google.com/terms"
+    ],
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://kansaslimousin.org",
+    "allPhoneNumbers": [
+      "620-432-5056",
+      "1235892853"
+    ],
+    "allSocialMediaLinks": [
+      "https://www.facebook.com/groups/1235892853935518/",
+      "https://www.facebook.com/groups/294431518392859/user/1483456138/?__cft__%5b0%5d=AZUHMermbSGOCqsTa2CUw-C3RjZHRYoqHY5zxofYh9cPVLmj8oovH-ozQ8Az2pl-qEBLQkYfTipIbB4ljFZlj5IbZq8M64Cs76vBohtKhUkPh_r2JcYW9Vp8nByochGu4Ogyg3-7aPEnZtlSnHHAXPo3RLUrj7WQ5oSijTWRv8Ob8_9t3oXuz5YSp4Y_z5bs4iI&__tn__=-%5dK-R"
+    ],
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://kkcger.com",
+    "allPhoneNumbers": "Error: Request failed with status code 404",
+    "allSocialMediaLinks": "Error: Request failed with status code 404",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://maddux.pro",
+    "allPhoneNumbers": "Error: Hostname/IP does not match certificate's altnames: Host: maddux.pro. is not in the cert's altnames: DNS:aceroofinginc.com, DNS:cpanel.aceroofinginc.com, DNS:cpcalendars.aceroofinginc.com, DNS:cpcontacts.aceroofinginc.com, DNS:mail.aceroofinginc.com, DNS:webdisk.aceroofinginc.com, DNS:webmail.aceroofinginc.com, DNS:whm.aceroofinginc.com, DNS:www.aceroofinginc.com",
+    "allSocialMediaLinks": "Error: Hostname/IP does not match certificate's altnames: Host: maddux.pro. is not in the cert's altnames: DNS:aceroofinginc.com, DNS:cpanel.aceroofinginc.com, DNS:cpcalendars.aceroofinginc.com, DNS:cpcontacts.aceroofinginc.com, DNS:mail.aceroofinginc.com, DNS:webdisk.aceroofinginc.com, DNS:webmail.aceroofinginc.com, DNS:whm.aceroofinginc.com, DNS:www.aceroofinginc.com",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://ohanaconsulting.net",
+    "allPhoneNumbers": "Error: Request failed with status code 404",
+    "allSocialMediaLinks": "Error: Request failed with status code 404",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://postmodern-strings.com",
+    "allPhoneNumbers": "Error: Cannot read properties of undefined (reading 'concat')",
+    "allSocialMediaLinks": "Error: Cannot read properties of undefined (reading 'concat')",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://takapartners.com",
+    "allPhoneNumbers": "Error: Cannot read properties of undefined (reading 'concat')",
+    "allSocialMediaLinks": "Error: Cannot read properties of undefined (reading 'concat')",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://techbarstore.com",
+    "allPhoneNumbers": "Error: Request failed with status code 522",
+    "allSocialMediaLinks": "Error: Request failed with status code 522",
+    "allEmailAddresses": []
+  },
+  {
+    "baseUrl": "https://top-salon-hair-salon.business.site",
+    "allPhoneNumbers": "Error: Request failed with status code 404",
+    "allSocialMediaLinks": "Error: Request failed with status code 404",
+    "allEmailAddresses": []
   }
 ]

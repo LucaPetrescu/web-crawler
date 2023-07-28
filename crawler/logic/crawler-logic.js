@@ -37,55 +37,48 @@ function findPhoneNumbers($, element, phoneNumbers) {
       findPhoneNumbers($, childElement, phoneNumbers);
     });
 
-  return phoneNumbers; // Return the accumulated phone numbers array
+  return phoneNumbers;
 }
 
-// function findAddresses($, element, addresses) {
-//   const text = $(element).text();
-//   const addressObj = postal.parser(text);
-//   console.log(addressObj);
-//   if (addressObj) {
-//     addresses.push(addressObj.fullAddress);
-//     return;
-//   }
+function findAddresses($, element, addresses) {
+  const text = $(element).text();
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
+  const matches = text.match(emailRegex);
+  if (matches) {
+    addresses.push(...matches);
+    return;
+  }
 
-//   $(element)
-//     .children()
-//     .each((index, childElement) => {
-//       findAddresses($, childElement, addresses);
-//     });
+  $(element)
+    .children()
+    .each((index, childElement) => {
+      findAddresses($, childElement, addresses);
+    });
 
-//   return addresses;
-// }
-
-// async function crawlContactPage(baseUrl) {
-//   let phoneNumbers = [];
-//   const response = await axios.get(baseUrl);
-//   const html = response.data;
-//   const $ = cheerio.load(html);
-//   phoneNumbers = findPhoneNumbers($, "body", phoneNumbers);
-//   return phoneNumbers;
-// }
+  return addresses;
+}
 
 async function crawlWebsitePage(baseUrl) {
   let phoneNumbers = [];
   let socialMediaLinks = [];
-  // let addressess = [];
+  let addresses = [];
   const response = await axios.get(baseUrl);
   const html = response.data;
   const $ = cheerio.load(html);
   phoneNumbers = findPhoneNumbers($, "body", phoneNumbers);
-  // addressess = findAddresses($, "body", addressess);
+  addresses = findAddresses($, "body", addresses);
   socialMediaLinks = findSocialMediaLinks($);
-  return { phoneNumbers, socialMediaLinks };
+  return { phoneNumbers, socialMediaLinks, addresses };
 }
 
 async function crawlFooter($) {
   let phoneNumbers = [];
   let socialMediaLinks = [];
+  let addresses = [];
+  addresses = findAddresses($, "footer", addresses);
   phoneNumbers = findPhoneNumbers($, "footer", phoneNumbers);
   socialMediaLinks = findSocialMediaLinks($);
-  return { phoneNumbers, socialMediaLinks };
+  return { phoneNumbers, socialMediaLinks, addresses };
 }
 
 function removeDuplicates(information) {
@@ -102,6 +95,7 @@ function removeDuplicates(information) {
         baseUrl,
         allPhoneNumbers: [],
         allSocialMediaLinks: [],
+        allEmailAddresses: [],
       });
       existingIndex = mergedInformation.length - 1;
     }
@@ -127,15 +121,24 @@ function removeDuplicates(information) {
       mergedInformation[existingIndex].allSocialMediaLinks =
         information[i].allSocialMediaLinks;
     }
+
+    // if (Array.isArray(information[i].allEmailAddresses)) {
+    //   const emailAddresses = information[i].allEmailAddresses.filter(
+    //     (value, index, self) => self.indexOf(value) === index
+    //   );
+    //   mergedInformation[existingIndex].allEmailAddresses.push(
+    //     ...emailAddresses
+    //   );
+    // } else {
+    //   mergedInformation[existingIndex].allEmailAddresses =
+    //     information[i].emailAddresses;
+    // }
   }
 
   return mergedInformation;
 }
 
 module.exports = {
-  findSocialMediaLinks,
-  findPhoneNumbers,
-  // crawlContactPage,
   removeDuplicates,
   crawlFooter,
   crawlWebsitePage,

@@ -9,13 +9,12 @@ async function crawl(path) {
   let info = [];
   let addresses = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     const baseUrl = `https://${domains[i]}`;
     try {
       const response = await axios.get(baseUrl);
       const html = response.data;
       const $ = cheerio.load(html);
-      const phoneNumbers = [];
       //------------------------------------------------
       const homePageResults = await crawler.crawlWebsitePage(baseUrl);
       const contactPageLink = $("a").filter(function () {
@@ -31,38 +30,23 @@ async function crawl(path) {
       const allSocialMediaLinks = homePageResults.socialMediaLinks
         .concat(contactPageResults.socialMediaLinks)
         .concat(footerResults.socialMediaLinks);
-      // console.log(addresses);
-      // console.log(allSocialMediaLinks);
-      // const socialMediaLinks = helpers.findSocialMediaLinks($);
-      // const bodyPhoneNumbers = crawler.findPhoneNumbers(
-      //   $,
-      //   "body",
-      //   phoneNumbers
-      // );
-      // const footerPhoneNumbers = crawler.findPhoneNumbers(
-      //   $,
-      //   "footer",
-      //   phoneNumbers
-      // );
+      const allEmailAddresses = homePageResults.addresses
+        .concat(contactPageResults.addresses)
+        .concat(footerResults.addresses);
 
-      // const contactPagePhoneNumbers = await crawler.crawlContactPage(
-      //   contactPageUrl
-      // );
-      // const socialMediaLinks = crawler.findSocialMediaLinks($);
-      // const cosialMediaLinksFromContacts = crawler.crawlContactPage(baseUrl);
-      // const allPhoneNumbers = bodyPhoneNumbers
-      //   .concat(footerPhoneNumbers)
-      //   .concat(contactPagePhoneNumbers);
-      // console.log(homePageResults.addressess);
-      //--------------------------------------------------------------------
-
-      if (allPhoneNumbers.length === 0 && allSocialMediaLinks.length === 0) {
+      if (
+        allPhoneNumbers.length === 0 &&
+        allSocialMediaLinks.length === 0 &&
+        allEmailAddresses.length === 0
+      ) {
         info.push({
           baseUrl,
           allPhoneNumbers:
             "No phone numbers found. Either anticrawling mechanism present on the website or there are no phone numbers on the website.",
           allSocialMediaLinks:
             "No social media links found. Either anticrawling mechanism present on the website or there are no social media links on the website.",
+          allEmailAddresses:
+            "No email addresses found. Either anticrawling mechanism present on the website or there are no email addresses on the website.",
         });
       } else if (allPhoneNumbers.length === 0) {
         info.push({
@@ -70,6 +54,7 @@ async function crawl(path) {
           allPhoneNumbers:
             "No phone numbers found. Either anticrawling mechanism present on the website or there are no phone numbers on the website.",
           allSocialMediaLinks,
+          allEmailAddresses,
         });
       } else if (allSocialMediaLinks.length === 0) {
         info.push({
@@ -77,12 +62,22 @@ async function crawl(path) {
           allPhoneNumbers,
           allSocialMediaLinks:
             "No social media links found. Either anticrawling mechanism present on the website or there are no social media links on the website.",
+          allEmailAddresses,
+        });
+      } else if (allEmailAddresses.length === 0) {
+        info.push({
+          baseUrl,
+          allPhoneNumbers,
+          allSocialMediaLinks,
+          allEmailAddresses:
+            "No email addresses found. Either anticrawling mechanism present on the website or there are no email addresses on the website.",
         });
       } else {
         info.push({
           baseUrl,
           allPhoneNumbers,
           allSocialMediaLinks,
+          allEmailAddresses,
         });
       }
     } catch (error) {
@@ -92,12 +87,14 @@ async function crawl(path) {
           baseUrl,
           allPhoneNumbers: `Error: ${domains[i]} not available`,
           allSocialMediaLinks: `Error: ${domains[i]} not available`,
+          allEmailAddresses: `Error: ${domains[i]} not available`,
         });
       } else {
         info.push({
           baseUrl,
           allPhoneNumbers: `Error: ${error.message}`,
           allSocialMediaLinks: `Error: ${error.message}`,
+          allEmailAddresses: `Error: ${error.message}`,
         });
       }
     }
@@ -106,7 +103,8 @@ async function crawl(path) {
 
   const jsonResult = JSON.stringify(result, null, 2);
 
-  const filePath = "C:/Users/PC/Desktop/web-crawler/crawler/assets/data.json";
+  const filePath =
+    "C:/Users/Luca Petrescu/Desktop/web-crawler/crawler/assets/data.json";
 
   fs.writeFile(filePath, jsonResult, (err) => {
     if (err) {
