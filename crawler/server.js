@@ -7,9 +7,9 @@ const crawler = require("./main");
 require("dotenv").config();
 const app = express();
 
-const path = "/web-crawler/crawler/assets/sample-websites.csv";
+const path = "/crawler_server/assets/sample-websites.csv";
 const pathFromLocal =
-  "C:/Users/Luca Petrescu/Desktop/web-crawler/crawler/assets/sample-websites.csv";
+  "C:/Users/luca.petrescu/Documents/web-crawler/crawler/assets/sample-websites.csv";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
